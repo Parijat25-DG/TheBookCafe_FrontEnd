@@ -1,0 +1,70 @@
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="http://localhost:4200/Home" style="color: purple;">HOME</a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav container" >
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/Products" style="color: purple; font-weight: bold;">Eat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/Items" style="color: purple; font-weight: bold;">Sip</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/Books" style="color: purple; font-weight: bold;">Read</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/ReadingClub" style="color: purple; font-weight: bold;">Discuss</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/MasterClass" style="color: purple; font-weight: bold;">Make</a>
+      </li>
+    </ul>
+  </nav>
+  <section class="hero is-primary is-fullheight">
+    <div class="container">
+      <br><br>
+      <h1 class="has-text-centered">
+          Our List of Beverages
+      </h1>
+    </div>
+    <div class="hero-body " style="text-align: center;">
+      <input type="text" class="form-control" placeholder="Search By Speciality" [(ngModel)]="searchQuality"/>
+      <br><br><br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SPECIALITY</th>
+        <th>DESCRIPTION</th>
+        <th>ACCOMPANIMENTS</th>
+        <th>PRICE (EURO)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items | quality:searchQuality" style="font-weight:bold">
+        <td>{{item.itemId}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.quality}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.accompaniments}}</td>
+        <td>{{item.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </section>
+</body>
+</html>

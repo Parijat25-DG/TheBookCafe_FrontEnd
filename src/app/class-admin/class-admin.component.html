@@ -1,0 +1,143 @@
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="http://localhost:4200/Admin" style="color: purple;">ADMIN</a>
+        
+        <!-- Links -->
+        <ul class="navbar-nav container" >
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ProductAdmin" style="color: purple; font-weight: bold;">Eatables</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ItemAdmin" style="color: purple; font-weight: bold;">Beverages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/RecipeAdmin" style="color: purple; font-weight: bold;">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ClubAdmin" style="color: purple; font-weight: bold;">Master Classs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ClassAdmin" style="color: purple; font-weight: bold;">Master Classes</a>
+          </li>
+        </ul>
+      </nav>
+<section class="hero is-primary is-fullheight">
+  <div class="container">
+    <br>
+    <h3 class="has-text-centered">
+        Add or Remove Master Classes from Listing
+    </h3>
+    <h4 class="container has-text-centered">
+        
+        <input type="radio" name="action" value="1" [(ngModel)]="action">ADD
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="action" value="2" [(ngModel)]="action">DELETE
+        <br>
+    </h4>
+  </div>
+  <div *ngIf="action == 2" class="hero-body" style="text-align: center;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>RECIPE</th>
+        <th>CATEGORY</th>
+        <th>DATE</th>
+        <th>SEATS</th>
+        <th>SUITABLE</th>
+        <th>PRICE</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let masterClass of masterClasses"  style="font-weight:bold">
+        <td>{{masterClass.classId}}</td>
+        <td>{{masterClass.recipeName}}</td>
+        <td>{{masterClass.recipeType}}</td>
+        <td>{{masterClass.scheduledDate}}</td>
+        <td>{{masterClass.seatsAvailable}}</td>
+        <td>{{masterClass.suitableFor}}</td>
+        <td>{{masterClass.price}}</td>
+        <td class="text-center"><button class="btn btn-danger btn-xs" (click)="removeClass(masterClass)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+<div *ngIf="action == 1" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="ID"><span class="req">* </span> Master Class ID:  </label>
+                        <input required type="text" [(ngModel)]="newClass.classId" name="id" id="id"
+                            class="form-control phone" maxlength="28" placeholder="Enter Master Class ID" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="NAME"><span class="req">* </span> Recipe Name: </label>
+                        <input class="form-control" type="text" [(ngModel)]="newClass.recipeName" name="name" id="name" required
+                            placeholder="Enter Recipe Name" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="TYPE"><span class="req">* </span> Recipe Type : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newClass.recipeType" name="type" id="type"
+                            placeholder="Enter Recipe Type" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PRICE"><span class="req">* </span> Master Class Price : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newClass.price" name="price" id="price"
+                            placeholder="Enter Master ClassPrice" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="scheduledDate"><span class="req">* </span> Master Class Scheduled Date : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newClass.scheduledDate" name="scheduledDate" id="scheduledDate"
+                            placeholder="Enter Master Class Scheduled Date" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seatsAvailable"><span class="req">* </span> Master Class Seats Available : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newClass.seatsAvailable" name="seatsAvailable" id="seatsAvailable"
+                            placeholder="Enter Master Class Seats Available" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suitableFor"><span class="req">* </span> Master Class Suitable For : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newClass.suitableFor" name="suitableFor" id="suitableFor"
+                            placeholder="Enter Master Class Suitable For" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_clubs" value="Submit" (click)="addClass(newClass)">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+</section>
+</body>
+</html>

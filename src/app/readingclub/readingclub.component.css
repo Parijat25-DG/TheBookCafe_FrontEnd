@@ -1,0 +1,37 @@
+.hero {
+    background-image: url('/assets/ReadingClub.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero.is-primary {
+    background-color: #00d1b2;
+    color: #fff;
+}
+
+.hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+}
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    color: maroon;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.hero.is-primary .title {
+    color: #fff;
+}
+
+.hero.is-fullheight {
+    min-height: 100vh;
+}
+
+.has-text-centered {
+    text-align: center!important;
+}

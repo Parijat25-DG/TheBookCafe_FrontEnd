@@ -1,0 +1,69 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<nav class="navbar navbar-expand-sm bg-light navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="http://localhost:4200/Home" style="color: purple;">HOME</a>
+    <!-- Links -->
+  </nav>
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body ">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                                        
+                    <div class="form-group">
+                        <label for="username"><span class="req">* </span> Username: </label>
+                        <input class="form-control" type="text" [(ngModel)]="customer.username" name="username" id="username" required
+                            placeholder="Enter your username" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password"><span class="req">* </span> Password : </label>
+                        <input class="form-control" type="password" [(ngModel)]="customer.password" name="password" id="password"
+                            placeholder="Enter your password" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_login" value="Login" (click)="loginUser()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+<div style="text-align: left">
+    <h3>{{message}}</h3>
+</div>
+
+
+<div class="hero-body" *ngIf="message.includes('success') && customer.username==='admin'" style="text-align: left;font-weight:bold">
+    <table>
+        <tr>
+            <td><h4>Welcome back Admin !!!</h4></td>
+            <td><button (click)="goToPage('Admin')">Click here</button></td>
+        </tr>
+    </table>
+</div>
+
+<div class="hero-body" *ngIf="message.includes('success') && customer.username!=='admin'" style="text-align: left;font-weight:bold">
+    <table>
+        <tr>
+            <td><h4>Welcome Back !!!</h4></td>
+            <td><button (click)="goToPage('Catalog')">Click here</button></td>
+        </tr>
+    </table>
+</div>
+
+</div>
+</section>

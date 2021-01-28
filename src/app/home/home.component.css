@@ -1,0 +1,46 @@
+.hero {
+    background-image: url('/assets/bookCafe1.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero.is-primary {
+    background-color: #00d1b2;
+    color: rgb(54, 6, 50);
+}
+
+.hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+}
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    color: purple;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.hero.is-primary .title {
+    color: rgb(78, 19, 19);
+}
+
+.hero.is-fullheight {
+    min-height: 100vh;
+}
+
+.has-text-centered {
+    text-align: center!important;
+}
+
+.has-text-left {
+    text-align: left!important;
+}
+
+.has-text-right {
+    text-align: right!important;
+}
+

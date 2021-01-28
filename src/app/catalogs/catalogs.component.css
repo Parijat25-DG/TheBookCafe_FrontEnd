@@ -1,0 +1,97 @@
+.hero {
+    background-image: url('/assets/Catalog1.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero.is-primary {
+    background-color: #00d1b2;
+    color: rgb(54, 6, 50);
+}
+
+.hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+}
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    color: purple;
+}
+
+.hero.is-primary .title {
+    color: rgb(78, 19, 19);
+}
+
+.hero.is-fullheight {
+    min-height: 100vh;
+}
+
+.has-text-centered {
+    text-align: center!important;
+}
+
+.section {
+    background-size: 100%;
+    background-position: center center;
+}
+
+.hCHqtO {
+    font-weight: bold;
+    padding: 0px 10px;
+    cursor: pointer;
+    background:  rgb(229, 236, 234);;
+    border: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(3, 22, 16);
+}
+
+.jEeuYs {
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 26px;
+    margin-right: 4px;
+    font-weight: 500;
+}
+
+.svg-header {
+    vertical-align: middle;
+    color: brown;
+}
+.icon, .payment, .svg-header {
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: -webkit-baseline-middle;
+    color: brown;
+}
+.svg-basket-mw-dim {
+    width: 27.55px;
+    height: 25px;
+    color: brown;
+}
+.svg-basket-mw {
+    background-position: 8.602708511158488% 6.7114093959731544%;
+    color: brown;
+}
+.icon, .payment, .svg-header {
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: -webkit-baseline-middle;
+    color: brown;
+}
+.svg-header {
+    background-image: url(https://www.bbassets.com/static/staticContent/header.css.svg);
+    vertical-align: middle;
+    color: brown;
+}

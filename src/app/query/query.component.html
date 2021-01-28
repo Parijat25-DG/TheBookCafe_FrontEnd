@@ -1,0 +1,81 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-expand-sm bg-light navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="http://localhost:4200/Home" style="color: purple;">HOME</a>
+    <!-- Links -->
+  </nav>
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body ">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> Name:  </label>
+                        <input required type="text" [(ngModel)]="query.name" name="name" id="name"
+                            class="form-control phone" maxlength="28" placeholder="Enter your fullname..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email: </label>
+                        <input class="form-control" type="text" [(ngModel)]="query.email" name="email" id="email" required
+                            placeholder="Enter valid email address" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone"><span class="req">* </span> Phone : </label>
+                        <input class="form-control" type="text" [(ngModel)]="query.phone" name="phone" id="phone"
+                            placeholder="Enter valid phone number" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject"><span class="req">* </span> Subject: </label>
+                        <input class="form-control" type="text" [(ngModel)]="query.subject" name="subject" id="subject" required
+                            placeholder="Enter the subject of your query" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details"><span class="req">* </span> Details : </label>
+                        <input class="form-control" type="text" [(ngModel)]="query.details" name="details" id="details"
+                            placeholder="Enter the details of your query" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_query" value="Submit" (click)="saveQuery()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+<div style="text-align: left">
+    <h3>{{message}}</h3>
+</div>
+
+<div class="hero-body" *ngIf="message.includes('success')" style="text-align: left;font-weight:bold">
+    <table>
+        <tr>
+            <td><h4>Proceed to see our offerings !!!</h4></td>
+            <td><button (click)="goToPage('Catalog')">Click here</button></td>
+        </tr>
+    </table>
+</div>
+
+</div>
+</section>

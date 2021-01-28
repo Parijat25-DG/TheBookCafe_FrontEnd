@@ -1,0 +1,134 @@
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="http://localhost:4200/Admin" style="color: purple;">ADMIN</a>
+        
+        <!-- Links -->
+        <ul class="navbar-nav container" >
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ProductAdmin" style="color: purple; font-weight: bold;">Eatables</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ItemAdmin" style="color: purple; font-weight: bold;">Beverages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/BookAdmin" style="color: purple; font-weight: bold;">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ClubAdmin" style="color: purple; font-weight: bold;">Reading Clubs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/ClassAdmin" style="color: purple; font-weight: bold;">Master Classes</a>
+          </li>
+        </ul>
+      </nav>
+<section class="hero is-primary is-fullheight">
+  <div class="container">
+    <br>
+    <h3 class="has-text-centered">
+        Add or Remove Eatables from Listing
+    </h3>
+    <h4 class="container has-text-centered">
+        
+        <input type="radio" name="action" value="1" [(ngModel)]="action">ADD
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="action" value="2" [(ngModel)]="action">DELETE
+        <br>
+    </h4>
+  </div>
+  <div *ngIf="action == 2" class="hero-body" style="text-align: center;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>ORIGIN</th>
+        <th>CATEGORY</th>
+        <th>DESCRIPTION</th>
+        <th>PRICE</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products"  style="font-weight:bold">
+        <td>{{product.productId}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.origin}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.brief}}</td>
+        <td>{{product.price}}</td>
+        <td class="text-center"><button class="btn btn-danger btn-xs" (click)="removeProduct(product)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+<div *ngIf="action == 1" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="ID"><span class="req">* </span> Product ID:  </label>
+                        <input required type="text" [(ngModel)]="newProduct.bookId" name="id" id="id"
+                            class="form-control phone" maxlength="28" placeholder="Enter Product ID" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="NAME"><span class="req">* </span> Product Name: </label>
+                        <input class="form-control" type="text" [(ngModel)]="newProduct.name" name="name" id="name" required
+                            placeholder="Enter Product Name" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ORIGIN"><span class="req">* </span> Product Origin : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newProduct.origin" name="origin" id="origin"
+                            placeholder="Enter Product Origin" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DESCRIPTION"><span class="req">* </span> Product Description: </label>
+                        <input class="form-control" type="text" [(ngModel)]="newProduct.description" name="description" id="description" required
+                            placeholder="Enter Product Description" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PRICE"><span class="req">* </span> Product Price : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newProduct.price" name="price" id="price"
+                            placeholder="Enter Product Price" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BRIEF"><span class="req">* </span> Product Brief : </label>
+                        <input class="form-control" type="text" [(ngModel)]="newProduct.brief" name="brief" id="brief"
+                            placeholder="Enter Product Type" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_products" value="Submit" (click)="addProduct(newProduct)">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+</section>
+</body>
+</html>
